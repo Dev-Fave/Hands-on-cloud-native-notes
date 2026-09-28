@@ -3,26 +3,7 @@ set -u
 
 # ============================================================
 # Week 3 - Kubernetes Core Objects
-# Learner Verification / Grading Script
-#
-# Core requirements only: 100 points
-# Extra challenges: NOT GRADED
-#
-# Usage:
-#   chmod +x verify.sh
-#   ./verify.sh
-#
-# Core requirements:
-#   - Build cloud-native-notes:2.0
-#   - Load the image to Kind
-#   - Deploy the Kubernetes objects
-#   - Check that the backend pods are running
-#   - Port forward the backend service
-#   - Post messages to the backend
-#   - Test the application
-#
-# Extra challenges only generate commendations, encouragement,
-# or fun facts. They never affect the score or exit status.
+# 
 # ============================================================
 
 IMAGE="cloud-native-notes:2.0"
@@ -33,21 +14,6 @@ EXPECTED_REPLICAS="2"
 EXTRA_REPLICAS="4"
 APP_PORT="3000"
 
-# ------------------------------------------------------------
-# Core scoring: exactly 100 points
-# ------------------------------------------------------------
-# 1. Kubernetes / kubectl       5
-# 2. Docker image              15
-# 3. Image loaded into Kind    10
-# 4. Namespace                 10
-# 5. Backend deployment        15
-# 6. Backend pods              15
-# 7. Backend service           10
-# 8. Port forwarding            5
-# 9. Post messages             10
-# 10. Application test          5
-#                               ---
-#                               100
 
 PASS=0
 FAIL=0

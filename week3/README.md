@@ -2,6 +2,9 @@
 
 Deploying cloud native notes app to Kubernetes using some Kubernetes core objects.
 
+**NOTE: The file `kind-config.yaml` in this directory is the configuration for the bootcamp.**
+**To avoid issues, kindly delete the cluster you created in week 1 and use the file to create a new cluster.**
+**It contains the necessary configuration for this bootcamp. Do this before the tasks to avoid stories.**
 
 ## Week 3 - Tasks
 - Build image `cloud-native-notes:2.0` using the files in `backend/`
