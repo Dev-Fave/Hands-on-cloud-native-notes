@@ -10,7 +10,8 @@ Deploying cloud native notes app to Kubernetes using some Kubernetes core object
 - Check the pods to see if running
 - Port forward the service to access the app.  
 - Post messages to the backend.
-- Test the application
+- Test the application and view your notes.
+- Restart the backend deployment and view your notes again
 
 ## Extra Challenges
 - Push the image to Docker Hub or another registry
