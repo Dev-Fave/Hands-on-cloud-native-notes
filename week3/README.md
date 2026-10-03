@@ -14,18 +14,21 @@ Deploying cloud native notes app to Kubernetes using some Kubernetes core object
 - Port forward the service to access the app.  
 - Post messages to the backend.
 - Test the application and view your notes.
-- Restart the backend deployment and view your notes again
+- Restart the backend deployment and try to view your notes again
+- Delete the backend pods and view your pods after few minutes
 
 ## Extra Challenges
-- Push the image to Docker Hub or another registry
-- Redeploy the backend by editing the manifest file to: 
-    - pull that new image rather than using the local image loaded to Kind
+1. Push the image to Docker Hub or another registry
+2. Redeploy the backend to Kubernetes by editing the manifest file to: 
+    - pull that new image from your registry rather than using the local image built and loaded to Kind
     - change the replica from 2 to 4
 
 ## To Think About
 - Was there any error when creating the Kubernetes objects? Why or why not?
-- What other errors did you encounter and how did you solve them?
+- What other errors did you encounter? How did you solve them?
+- What is the importance of namespace?
 - Explore the manifest files in `k8s/`. What is the importance of the resource section in the `backend-deployment` manifest file?
+- What is the difference between the imperative and declarative method?
 
 ## Solution Guide
 
@@ -48,9 +51,11 @@ Deploying cloud native notes app to Kubernetes using some Kubernetes core object
     curl -X POST http://localhost:3000/api/notes -H "Content-Type: application/json" -d '{"title":"Week 2","content":"Containers and Images"}'
 
     curl -X POST http://localhost:3000/api/notes -H "Content-Type: application/json" -d '{"title":"Week 3","content":"Working on Kubernetes!"}'
+
+    curl -X POST http://localhost:3000/api/notes -H "Content-Type: application/json" -d '{"title":"Fun Fact","content":"k8s is the shortend form for Kubernetes"}'
     ```
     
-- Test the app
+- Test the app in the termninal or on the browser
     ```
     curl http://localhost:3000/api/notes
     

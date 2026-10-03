@@ -3,7 +3,6 @@ set -u
 
 # ============================================================
 # Week 3 - Kubernetes Core Objects
-# 
 # ============================================================
 
 IMAGE="cloud-native-notes:2.0"
@@ -71,7 +70,6 @@ section() {
 
 # ============================================================
 # 1. Kubernetes / kubectl
-# 5 points
 # ============================================================
 
 section "1. Kubernetes / kubectl"
@@ -105,7 +103,6 @@ kubectl config current-context
 
 # ============================================================
 # 2. Docker image
-# 15 points
 # ============================================================
 
 section "2. Build the Week 3 Image"
@@ -130,14 +127,13 @@ else
         echo "Expected image:"
         echo "  $IMAGE"
         echo
-        echo "The learner should have built it with:"
+        echo "You should have built it with:"
         echo "  docker build -t cloud-native-notes:2.0 ./backend"
     fi
 fi
 
 # ============================================================
 # 3. Load image into Kind
-# 10 points
 # ============================================================
 
 section "3. Load the Image to Kind"
@@ -173,7 +169,7 @@ else
         else
             fail "Image '$IMAGE' was not found in the Kind node image stores"
             echo
-            echo "The learner should load it with:"
+            echo "You should load it with:"
             echo "  kind load docker-image $IMAGE --name <YOUR-BOOTCAMP-CLUSTER-NAME>"
         fi
     fi
@@ -181,7 +177,6 @@ fi
 
 # ============================================================
 # 4. Namespace
-# 10 points
 # ============================================================
 
 section "4. Kubernetes Namespace"
@@ -192,7 +187,7 @@ if kubectl get namespace "$NAMESPACE" >/dev/null 2>&1; then
 else
     fail "Namespace '$NAMESPACE' does not exist"
     echo
-    echo "The learner should deploy the Kubernetes objects"
+    echo "You should deploy the Kubernetes objects"
     echo "using the manifests in k8s/."
 fi
 
@@ -374,7 +369,7 @@ else
     else
         fail "No working port-forward detected on localhost:$APP_PORT"
         echo
-        echo "The learner should run:"
+        echo "You should run:"
         echo "  kubectl port-forward -n $NAMESPACE svc/$SERVICE $APP_PORT:$APP_PORT"
     fi
 fi

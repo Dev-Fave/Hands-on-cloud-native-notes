@@ -1,5 +1,5 @@
 # ============================================
-# Week 3: Basic FastAPI App
+# Week 3: Cloud Native Notes App 
 # ============================================
 
 from fastapi import FastAPI, HTTPException
