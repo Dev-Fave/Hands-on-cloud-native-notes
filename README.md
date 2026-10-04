@@ -9,7 +9,7 @@ Feel free to fork and star this repo.
 ---
 Here are the topics organized by weeks.
 
-- *Week 1* - Are You Get Ready?
+- *Week 1* - Are You Ready?
 - *Week 2* - Containers and Images
 - *Week 3* - Kubernetes Core Objects
 - *Week 4* - Configuration, Secrets and Storage

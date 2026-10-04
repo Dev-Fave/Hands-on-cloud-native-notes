@@ -9,10 +9,10 @@ Deploying cloud native notes app to Kubernetes using some Kubernetes core object
 ## Week 3 - Tasks
 - Build image `cloud-native-notes:2.0` using the files in `backend/`
 - Load the image to Kind
-- Deploy the Kubernetes objects using the manifest files in `k8s/`
+- Create the various Kubernetes objects using the manifest files in `k8s/`
 - Check the pods to see if running
 - Port forward the service to access the app.  
-- Post messages to the backend.
+- Post messages to the running Cloud Native Notes backend app.
 - Test the application and view your notes.
 - Restart the backend deployment and try to view your notes again
 - Delete the backend pods and view your pods after few minutes
@@ -55,7 +55,7 @@ Deploying cloud native notes app to Kubernetes using some Kubernetes core object
     curl -X POST http://localhost:3000/api/notes -H "Content-Type: application/json" -d '{"title":"Fun Fact","content":"k8s is the shortend form for Kubernetes"}'
     ```
     
-- Test the app in the termninal or on the browser
+- Test the app in the terminal or on the browser
     ```
     curl http://localhost:3000/api/notes
     
