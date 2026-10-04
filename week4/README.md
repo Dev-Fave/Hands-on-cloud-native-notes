@@ -14,7 +14,7 @@ Working with ConfigMaps, Secrets and PersistentVolume.
 - Build and load `cloud-native-notes:3.0` to the cluster
     -  You can use the `build-and-load.sh` script to automate it
 - Create the Kubernetes objects using the manifest files in `k8s/` such as the: namespace, configmap, secret, redis deployment and backend deployment.
-- Check the details of the Kubernetes objects created. *See solution guide*
+- Check the details of the Kubernetes objects created. -*See solution guide*
 - Confirm that backend authenticates with redis. 
 - Port-Forward the backend service to port 3000
 - Try to POST several content to the backend from another terminal
@@ -105,7 +105,7 @@ Working with ConfigMaps, Secrets and PersistentVolume.
    
    `curl http://localhost:3000/debug/config`
    
-   You should see `redis_connected: True`. If not, your data would not persist. Fix it.
+   You should see `redis_connected: True`. If `false`, your data would not persist. Try to fix it.
    
    
 
