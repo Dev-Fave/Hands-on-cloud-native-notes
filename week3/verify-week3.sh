@@ -155,12 +155,26 @@ else
 
             if docker exec "$NODE_NAME" crictl images 2>/dev/null | \
                 awk -v image="$IMAGE" '
-                    NR > 1 && $1 == image { found=1 }
+                    BEGIN {
+                        # Split "cloud-native-notes:2.0" into repo and tag
+                        n = split(image, parts, ":")
+                        repo = parts[1]
+                        tag  = (n > 1) ? parts[2] : "latest"
+                    }
+                    NR > 1 {
+                        # crictl $1 is repo (may have registry prefix), $2 is tag
+                        # Match if repo ends with our repo name and tag matches
+                        if ($2 == tag && $1 ~ ("(^|/)" repo "$")) {
+                            found = 1
+                        }
+                    }
                     END { exit(found ? 0 : 1) }
                 '; then
                 KIND_IMAGE_FOUND=true
                 echo "       Found $IMAGE on Kind node: $NODE_NAME"
             fi
+
+
         done <<< "$NODE_NAMES"
 
         if [[ "$KIND_IMAGE_FOUND" == true ]]; then
