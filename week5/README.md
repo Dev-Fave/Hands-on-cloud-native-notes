@@ -14,9 +14,9 @@ Learn how to find information needed for troubleshooting. You have used some of 
 
 
 ## Extra Challenges
-
-1. Explore other `kubectl` commands
-2. Try `kubectl <command> --help` to gain further insight
+1. Deploy a pod with a deliberate typo in the image name, then use `kubectl describe` and `kubectl get events` to identify the exact error. Screenshot both outputs and explain the difference on the group.
+2. Explore other `kubectl` commands
+3. Try `kubectl <command> --help` to gain further insight
 
 ## To Think About
 
@@ -45,6 +45,7 @@ Look at: Events section at the bottom (this is where the real story is)
 4. Get inside the pod
 
 `kubectl exec -it <pod-name> -n cloud-native-notes -- /bin/sh`
+
 Test: curl localhost:3000/health, ls -la /data, env | grep REDIS
 
 5. What's happening in the cluster?
@@ -54,7 +55,7 @@ Test: curl localhost:3000/health, ls -la /data, env | grep REDIS
 Look at: What happened recently? Scheduling? Image pulls? Volume mounts?
 
 ## Notes
-This is a time take some rest and just reflect on your progress so far. 
+This is a time to take some rest and just reflect on your progress so far. 
 
 Help others who are having difficulties and share your knowledge. 
 
