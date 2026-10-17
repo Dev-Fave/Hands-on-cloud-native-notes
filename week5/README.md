@@ -14,7 +14,7 @@ Learn how to find information needed for troubleshooting. You have used some of 
 
 
 ## Extra Challenges
-1. Deploy a pod with a deliberate typo in the image name, then use `kubectl describe` and `kubectl get events` to identify the exact error. Screenshot both outputs and explain the difference on the group.
+1. Deploy a pod with a deliberate typo in the image name, then use `kubectl describe` and `kubectl events` to identify the exact error. Screenshot both outputs and explain the difference on the group.
 2. Explore other `kubectl` commands
 3. Try `kubectl <command> --help` to gain further insight
 
@@ -32,27 +32,39 @@ Look at: STATUS column (Pending, ContainerCreating, CrashLoopBackOff, Error, Run
 
 2. What does the cluster say?
 
-`kubectl describe pod <pod-name> -n cloud-native-notes`
+`kubectl describe pod -n cloud-native-notes <pod-name>`
 
 Look at: Events section at the bottom (this is where the real story is)
 
 3. What does the app say?
 
-`kubectl logs <pod-name> -n cloud-native-notes`
+`kubectl logs -n cloud-native-notes <pod-name> `
 
-`kubectl logs <pod-name> -n cloud-native-notes --previous`  # For crashed pods
+`kubectl logs  n cloud-native-notes <pod-name> --previous`    # For crashed pods
 
 4. Get inside the pod
 
-`kubectl exec -it <pod-name> -n cloud-native-notes -- /bin/sh`
+`kubectl exec -it -n cloud-native-notes <pod-name> -- /bin/sh`
 
 Test: curl localhost:3000/health, ls -la /data, env | grep REDIS
 
 5. What's happening in the cluster?
 
-`kubectl get events -n cloud-native-notes --sort-by='.lastTimestamp'`
+`kubectl events -n cloud-native-notes --sort-by='.lastTimestamp'`
 
 Look at: What happened recently? Scheduling? Image pulls? Volume mounts?
+
+
+## Verify
+
+Run the verification script ./verify-week5.sh
+
+If your verification score is 100%, you are good to go!
+
+If not, read the report and rectify the error(s).
+
+If you are stucked after several trials, ask for help in the group.
+
 
 ## Notes
 This is a time to take some rest and just reflect on your progress so far. 
